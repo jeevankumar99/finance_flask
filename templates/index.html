@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Index
+{% endblock %}
+
+{% block main %}
+    <center><table>
+        <tr>
+            <th>Share Symbol</th>
+            <th>No of Shares</th>
+            <th>Share Price</th>
+            <th>Total Price</th>
+        </tr>
+        <tr>
+        {% for items in st2 %}
+           <td>{{items}}</td>
+           {% if loop.index is divisibleby 4 %}
+                </tr>
+                <tr>
+            {% endif %}
+        {% endfor %}
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{share_sum}}</td>
+        </tr>
+    </table></center>
+    <p><br><center><h5 style = "color : green">Cash Remaining : {{balance}}</h5></center></p>
+    <p><br><h6>Recent Sale Activity:</h6><br></p>
+    <table>
+        <tr>
+            <th>Symbol</th>
+            <th>Shares Sold</th>
+            <th>Cost at Sale</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            {% for act in activity %}
+                <td>{{act}}</td>
+            {% endfor %}
+        </tr>
+    </table>
+{% endblock %}

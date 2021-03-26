@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table>
+        <tr>
+            <th>Symbol</th>
+            <th>Shares Bought</th>
+            <th>Shares Sold</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+           {% for items in st2 %}
+                <td>{{items}}</td>
+                {%  if loop.index is divisibleby 4 %}
+                    </tr>
+                    <tr>
+                {% endif %}
+            {% endfor %}
+        </tr>
+    </table>
+    </table>
+{% endblock %}
